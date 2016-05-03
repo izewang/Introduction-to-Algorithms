@@ -1,0 +1,50 @@
+#include "red_black_tree.h"
+int main() {
+    RedBlackTree<int, int> * rbtree = new RedBlackTree<int, int>();
+    rbtree->Insert(1, 1);
+    rbtree->Insert(2, 1);
+    rbtree->Insert(0, 9);
+    rbtree->Insert(3, 1);
+    rbtree->Insert(4, 2);
+    rbtree->Insert(5, 7);
+    rbtree->Insert(-1, 9);
+    rbtree->Insert(9, 6);
+    rbtree->Insert(8, 8);
+    rbtree->Insert(7, 7);
+    rbtree->Insert(6, 6);
+    rbtree->Insert(5, 3);
+    printf("rbtree->Search(5) = %i\n",rbtree->Search(5));
+    printf("rbtree->Search(7) = %i\n",rbtree->Search(7));
+    printf("rbtree->Search(3) = %i\n",rbtree->Search(3));
+    rbtree->InorderTreeWalk();
+    rbtree->LevelorderTreeWalk();
+    printf("rbtree->Contains(9) = %i\n",rbtree->Contains(9));
+    printf("rbtree->Contains(10) = %i\n",rbtree->Contains(10));
+    printf("rbtree->Contains(-9) = %i\n",rbtree->Contains(-9));
+    rbtree->Delete(9);
+    rbtree->Delete(4);
+    rbtree->InorderTreeWalk();
+    rbtree->LevelorderTreeWalk();
+    rbtree->Delete(5);
+    rbtree->Delete(3);
+    rbtree->Delete(1);
+    rbtree->Delete(-1);
+    rbtree->Delete(0);
+    rbtree->Delete(2);
+    rbtree->Delete(7);
+    rbtree->Delete(8);
+    rbtree->Delete(6);
+    rbtree->InorderTreeWalk();
+    rbtree->LevelorderTreeWalk();
+    rbtree->Insert(33, 22);
+    rbtree->Insert(1, 2);
+    rbtree->Delete(33);
+    
+    RedBlackTree<int, int> rbtree2 = std::move(*rbtree);
+    rbtree2.InorderTreeWalk();
+    rbtree2.LevelorderTreeWalk();
+    rbtree2.Insert(2, 4);
+    rbtree2.Delete(1);
+    rbtree2.InorderTreeWalk();
+    rbtree2.LevelorderTreeWalk();
+}
